@@ -1,5 +1,11 @@
 # Tic Tac Toe
 
+The game can be played in an `iex` session:
+
+```
+iex -S mix
+```
+
 Moves are played using the `TTT.place/1` function:
 ```
 19:03:01.180 [info]  Player o begins.
