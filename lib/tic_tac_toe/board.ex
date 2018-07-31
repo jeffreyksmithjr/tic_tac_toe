@@ -11,8 +11,8 @@ defmodule TTT.Board do
     |> Map.new()
   end
 
-  def place(pid \\ __MODULE__, {position, character} = move) do
-    Agent.update(pid, &Map.put(&1, position, character))
+  def place(pid \\ __MODULE__, {position, player} = _move) do
+    Agent.update(pid, &Map.put(&1, position, player))
   end
 
   def get(pid \\ __MODULE__, position) do
