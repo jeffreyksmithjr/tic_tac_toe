@@ -1,18 +1,11 @@
 defmodule TTT do
-  @moduledoc """
-  Documentation for TTT.
-  """
+  alias TTT.Board
+  alias TTT.Turns
+  alias TTT.Orchestration
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> TTT.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def place(board_pid \\ Board, turns_pid \\ Turns, position) do
+    current_player = Turns.current(turns_pid)
+    move = {position, current_player}
+    Orchestration.play_turn(board_pid, turns_pid, move)
   end
 end
