@@ -1,5 +1,6 @@
 defmodule TTT.Board do
   use Agent
+  require Logger
 
   def start_link(opts \\ []) do
     opts = Keyword.put_new(opts, :name, __MODULE__)
@@ -24,6 +25,7 @@ defmodule TTT.Board do
   end
 
   def clear(pid \\ __MODULE__) do
+    Logger.info("Clearing the board")
     Agent.update(pid, fn _ -> empty_board() end)
   end
 end

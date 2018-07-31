@@ -10,7 +10,8 @@ defmodule TTT.Application do
     children = [
       # Starts a worker by calling: TTT.Worker.start_link(arg)
       # {TTT.Worker, arg},
-      {TTT.Board, []}
+      {TTT.Board, []},
+      {TTT.Turns, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
