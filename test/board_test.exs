@@ -2,6 +2,10 @@ defmodule TTT.BoardTest do
   use ExUnit.Case
   alias TTT.Board
 
+  setup_all do
+    Board.clear()
+  end
+
   test "can retrieve placed moves" do
     position = :ul
     player = :x

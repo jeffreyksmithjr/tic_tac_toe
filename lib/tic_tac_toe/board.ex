@@ -24,6 +24,22 @@ defmodule TTT.Board do
     Agent.get(pid, & &1)
   end
 
+  def get_all_by_player(pid \\ __MODULE__, player) do
+    get_all(pid)
+    |> Enum.filter(fn {_position, pos_player} -> player == pos_player end)
+    |> Enum.map(fn {position, _pos_player} -> position end)
+  end
+
+  def get_all_occupied(pid \\ __MODULE__) do
+    get_all(pid)
+    |> Enum.filter(fn {_position, pos_player} -> :empty != pos_player end)
+    |> Enum.map(fn {position, _pos_player} -> position end)
+  end
+
+  def occupied?(pid \\ __MODULE__, position) do
+    get(pid, position) != :empty
+  end
+
   def clear(pid \\ __MODULE__) do
     Logger.info("Clearing the board")
     Agent.update(pid, fn _ -> empty_board() end)

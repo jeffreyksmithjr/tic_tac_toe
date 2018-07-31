@@ -12,9 +12,11 @@ defmodule TTT.Turns do
 
   def next(pid \\ __MODULE__) do
     switch = fn current ->
-      [next | _] = MapSet.difference(Players.both(), MapSet.new([current]))
-      |> MapSet.to_list()
-      Logger.info "Player #{Atom.to_string(next)}'s turn."
+      [next | _] =
+        MapSet.difference(Players.both(), MapSet.new([current]))
+        |> MapSet.to_list()
+
+      Logger.info("Player #{Atom.to_string(next)}'s turn.")
       next
     end
 
