@@ -28,6 +28,8 @@ defmodule TTT.Orchestration do
       Logger.info("New game begins.")
     end
 
+    Logger.info "The current state of the board is: #{inspect(Board.get_all())}"
+
     Turns.next(turns_pid)
     {:ok, move}
   end
