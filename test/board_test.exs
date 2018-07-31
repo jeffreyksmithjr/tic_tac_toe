@@ -2,7 +2,7 @@ defmodule TTT.BoardTest do
   use ExUnit.Case
   alias TTT.Board
 
-  setup_all do
+  setup do
     Board.clear()
   end
 

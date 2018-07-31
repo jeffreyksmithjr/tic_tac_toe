@@ -94,9 +94,9 @@ defmodule TTT.ValidationTest do
   end
 
   test "validates that the game is not yet over" do
-      player = :x
-      result = Validation.game_over?(player)
-      assert !result
+    player = :x
+    result = Validation.game_over?(player)
+    assert !result
   end
 
   test "determines that the game is over" do
